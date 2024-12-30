@@ -8,6 +8,7 @@ import {
   Tooltip,
   Legend,
 } from "chart.js";
+import Composite from '../../components/Composite/Composite';
 ChartJS.register(ArcElement, Tooltip, Legend);
 
 
@@ -67,13 +68,7 @@ const Dashboard = () => {
         </div>
         
         {/* Composition Doughnut Chart */}
-        <div className="composite-container">
-          <h3>Composition</h3>
-          {
-            console.log(data)
-          }
-          <Doughnut data={data} />
-        </div>
+        <Composite data={data}/>
         
         {/* Gender Breakdown */}
         <div className="gender-container">

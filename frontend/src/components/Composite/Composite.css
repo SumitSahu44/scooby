@@ -1,0 +1,41 @@
+.composite-container {
+    width: 50%;
+    margin: 20px auto;
+    text-align: center;
+  }
+  
+  .composite-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+    border:2px solid red;
+  }
+  
+  .chart-container {
+    flex: 1;
+    max-width: 50%;
+  }
+  
+  .labels-container {
+    flex: 1;
+    max-width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding-left: 20px;
+  }
+  
+  .label-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  
+  .label-color {
+    width: 15px;
+    height: 15px;
+    margin-right: 10px;
+    border-radius: 50%;
+  }
+  

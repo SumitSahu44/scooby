@@ -6,7 +6,7 @@
     /* border:2px solid rgb(76, 0, 255); */
   flex-wrap: wrap;
   justify-content: flex-start;
-  gap: 50px;
+  gap: 30px;
   
 }
 
@@ -19,6 +19,7 @@
     padding: 20px;
     width: 35%;
     min-width: 300px;
+    margin-top:20px;
   
 }
 
@@ -31,7 +32,8 @@
     padding: 20px;
     min-width: 300px;
     min-width: 300px;
-    width: 60%;
+    width: 50%;
+    margin-top:20px;
 }
 
 .gender-container{

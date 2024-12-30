@@ -5,6 +5,7 @@ const PatientTable = ({ patients }) => {
     <table style={{ width: "100%", borderCollapse: "collapse" }}>
       <thead>
         <tr style={{ background: "#f9f9f9" }}>
+          <th style={styles.header}><input type="checkbox" name="" id="" /></th>
           <th style={styles.header}>Patient Name</th>
           <th style={styles.header}>Phone</th>
           <th style={styles.header}>Age</th>
@@ -15,6 +16,7 @@ const PatientTable = ({ patients }) => {
       <tbody>
         {patients.map((patient, index) => (
           <tr key={patient.id || index} style={styles.row}>
+            <td style={styles.cell}><input type="checkbox" name="" id="" /></td>
             <td style={styles.cell}>{patient.name}</td>
             <td style={styles.cell}>{patient.phone}</td>
             <td style={styles.cell}>{patient.age}</td>

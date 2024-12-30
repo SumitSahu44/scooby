@@ -10,6 +10,13 @@ const PatientSummary = () => {
       age: 23,
       gender: "Male",
     },
+    {
+        id: 2,
+        name: "Amit",
+        phone: "+2348065560633",
+        age: 23,
+        gender: "Male",
+      },
     // Add more patient data here as needed
   ]);
 
