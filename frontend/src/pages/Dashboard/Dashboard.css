@@ -1,0 +1,43 @@
+
+
+
+.main-container{
+    display: flex;
+    /* border:2px solid rgb(76, 0, 255); */
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  gap: 50px;
+  
+}
+
+.patient-container{
+  
+    box-shadow: rgba(227, 224, 224, 0.24) 0px 3px 8px;
+    background-color: white;
+    border-radius:12px;
+    height: 250px;
+    padding: 20px;
+    width: 35%;
+  
+}
+
+.composite-container{
+  
+    box-shadow: rgba(217, 215, 215, 0.24) 0px 3px 8px;
+    background-color: white;
+    border-radius:12px;
+    height: 250px;
+    padding: 20px;
+
+    width: 60%;
+}
+
+.gender-container{
+  
+    box-shadow: rgba(220, 218, 218, 0.24) 0px 3px 8px;
+    background-color: white;
+    border-radius:12px;
+    padding: 20px;
+    width: 30%;
+   height: 250px;
+}
