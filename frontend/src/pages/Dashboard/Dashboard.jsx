@@ -11,7 +11,7 @@ import {
 ChartJS.register(ArcElement, Tooltip, Legend);
 
 
-
+// create data for charts 
 const data = {
     labels: ["No DR", "Mild", "Moderate", "Severe", "Proliferate"],
     datasets: [
