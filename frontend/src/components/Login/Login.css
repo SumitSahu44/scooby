@@ -1,0 +1,148 @@
+.input-icon {
+    display: flex;
+    align-items: center;
+    border: 1px solid #ccc;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #EFF1F9;
+  }
+  .input-icon .icon {
+    margin-right: 10px;
+    /* color: #888; */
+  }
+  .input {
+    background-color: #EFF1F9;
+    border: none;
+    outline: none;
+    flex: 1;
+  }
+  /* .input-icon:hover { */
+    /* border-color: #007bff; */
+  /* } */
+  
+  .container {
+    height: 80vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #F4F5FA;
+    column-gap: 30px;
+  }
+
+  .form {
+    position: absolute;
+    max-width: 430px;
+    width: 100%;
+    padding: 30px;
+    border-radius: 6px;
+    background: #FFF;
+  }
+  .form.signup {
+    opacity: 0;
+    pointer-events: none;
+  }
+  .forms.show-signup .form.signup {
+    opacity: 1;
+    pointer-events: auto;
+  }
+  .forms.show-signup .form.login {
+    opacity: 0;
+    pointer-events: none;
+  }
+  header {
+    font-family: "Lato", serif;
+    font-weight: 500;
+    font-style: normal;
+    text-align: center;
+    font-size: 20px;
+  }
+  small{
+    color: grey;
+  }
+  form {
+    margin-top: 30px;
+  }
+  .form .field {
+    position: relative;
+    height: 50px;
+    width: 100%;
+    margin-top: 20px;
+    border-radius: 6px;
+  }
+  
+  .form-link span,
+  .form-link a {
+    font-size: 14px;
+    font-weight: 400;
+    color: #232836;
+  }
+  .form a {
+    /* color: #0171d3; */
+    text-decoration: none;
+  }
+  .field input,
+  .field .btn {
+    height: 100%;
+    width: 100%;
+    border: none;
+    font-size: 16px;
+    font-weight: 400;
+    border-radius: 6px;
+  }
+  .field input {
+    outline: none;
+    padding: 0 15px;
+ 
+  }
+  .field input:focus {
+    border-bottom-width: 2px;
+  }
+  .eye-icon {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    font-size: 18px;
+    color: #8b8b8b;
+    cursor: pointer;
+    padding: 5px;
+  }
+  .field .btn {
+    color: #fff;
+    /* background-color: #0171d3; */
+    transition: all 0.3s ease;
+    cursor: pointer;
+  }
+  .field .btn:hover {
+    /* background-color: #016dcb; */
+  }
+  .form-link {
+    text-align: end;
+    margin-top: 10px;
+  }
+  .form-content a:hover {
+    text-decoration: underline;
+  }
+  
+  @media screen and (max-width: 400px) {
+    .form {
+      padding: 20px 10px;
+    }
+  }
+
+.submit{
+
+    text-align: center;
+    margin-top: 30px;
+}
+  .submit-btn{
+    background-color: #5979EA;
+    width: 150px;
+    font-size: 18px;
+    border: none;
+    height: 50px;
+    border-radius: 8px;
+    margin: 0 auto;
+    color: white;
+  }
