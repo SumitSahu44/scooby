@@ -68,6 +68,9 @@ const Dashboard = () => {
         {/* Composition Doughnut Chart */}
         <div className="composite-container">
           <h3>Composition</h3>
+          {
+            console.log(data)
+          }
           <Doughnut data={data} />
         </div>
         

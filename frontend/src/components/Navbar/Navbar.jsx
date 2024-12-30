@@ -6,6 +6,7 @@ const Navbar = () => {
     <div className='nav'>
        <div className='nav-items'>
          <img src={logo} alt="logo" />
+          <p>Scooby</p>
        </div>
     </div>
   )
