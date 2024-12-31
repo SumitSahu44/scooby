@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import axios from "axios";
 import Sidebar from "../../components/Sidebar/Sidebar";
 import { useDropzone } from "react-dropzone";
-import './Predict.css'
-import { use } from "react";
+import './Predict.css';
+
 const Predict = () => {
   const [file, setFile] = useState(null);
   const [preview, setPreview] = useState(null);
@@ -38,6 +38,9 @@ const Predict = () => {
 
     setLoading(true);
 
+    // Start from 0
+    setProgress(0);
+
     try {
       const formData = new FormData();
       formData.append("file", file);
@@ -54,7 +57,7 @@ const Predict = () => {
             const percentCompleted = Math.round(
               (progressEvent.loaded * 100) / progressEvent.total
             );
-            setProgress(percentCompleted);
+            setProgress(percentCompleted);  // Update progress dynamically
           },
         }
       );
@@ -67,7 +70,7 @@ const Predict = () => {
       alert("Something went wrong! Please try again.");
     } finally {
       setLoading(false);
-      setProgress(0);
+      setProgress(100);  // Ensure progress is capped at 100% in case of slow response
     }
   };
 
@@ -114,7 +117,7 @@ const Predict = () => {
               <p>{prediction}</p>
               <br />
 
-              <h3>confidence:</h3>
+              <h3>Confidence:</h3>
               <p>{confidence}</p>
             </div>
           )}
@@ -125,6 +128,7 @@ const Predict = () => {
         <div style={fullScreenLoaderStyles}>
           <div style={circularLoaderStyles}>
             <div style={{ ...circularSpinnerStyles, transform: `rotate(${progress}deg)` }} />
+            <span style={progressTextStyles}>{progress}%</span>
           </div>
         </div>
       )}
@@ -139,12 +143,10 @@ const containerStyles = {
   backgroundColor: "white",
   width: "75%",
   margin: "50px auto",
-  height:"500px",
+  height: "500px",
 };
 
-const leftContainerStyles = {
-  // width: "30%",
-};
+const leftContainerStyles = {};
 
 const rightContainerStyles = {
   width: "30%",
@@ -153,12 +155,10 @@ const rightContainerStyles = {
   borderRadius: "10px",
   boxShadow: "rgba(0, 0, 0, 0.16) 0px 1px 4px",
   height: "350px",
-  // border: "2px solid red",
   display: "flex",
   flexDirection: "column",
   alignItems: "center",
-}
-;
+};
 
 const uploadContainerStyles = {
   display: "flex",
@@ -166,10 +166,10 @@ const uploadContainerStyles = {
   alignItems: "center",
   padding: "20px",
   borderRadius: "10px",
-  boxShadow:" rgba(0, 0, 0, 0.16) 0px 1px 4px",
+  boxShadow: "rgba(0, 0, 0, 0.16) 0px 1px 4px",
   backgroundColor: "#fff",
-  height:"350px",
-  minWidth:"280px"
+  height: "350px",
+  minWidth: "280px",
 };
 
 const dropzoneContainerStyles = {
@@ -214,7 +214,7 @@ const generateButtonStyles = {
   border: "none",
   borderRadius: "5px",
   cursor: "pointer",
-  marginTop:"15px",
+  marginTop: "15px",
 };
 
 const previewContainerStyles = {
@@ -226,7 +226,7 @@ const imagePreviewStyles = {
   width: "200px",
   height: "auto",
   borderRadius: "10px",
-  boxShadow:" rgba(0, 0, 0, 0.16) 0px 1px 4px",
+  boxShadow: "rgba(0, 0, 0, 0.16) 0px 1px 4px",
 };
 
 const predictionContainerStyles = {
@@ -241,8 +241,7 @@ const messageContainerStyles = {
   textAlign: "center",
   color: "#666",
   fontSize: "16px",
-  fontWeight:"bold",
-  // border:"2px solid red",
+  fontWeight: "bold",
 };
 
 const fullScreenLoaderStyles = {
@@ -265,8 +264,8 @@ const circularLoaderStyles = {
   display: "flex",
   justifyContent: "center",
   alignItems: "center",
-  border: "4px solid #f3f3f3",
-  borderTop: "4px solid #007bff",
+  border: "5px solid #f3f3f3",
+  borderTop: "5px solid #007bff",
   animation: "spin 1s linear infinite",
 };
 
@@ -274,6 +273,13 @@ const circularSpinnerStyles = {
   width: "80%",
   height: "80%",
   borderRadius: "50%",
+};
+
+const progressTextStyles = {
+  position: "absolute",
+  fontSize: "16px",
+  fontWeight: "bold",
+  color: "#333",
 };
 
 export default Predict;
