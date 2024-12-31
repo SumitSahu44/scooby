@@ -7,16 +7,16 @@ import Patient from './pages/Patient/Patient'
 import Predict from './pages/Predict/Predict'
 const App = () => {
  
-  const url = "http://localhost:5000";
+ 
   return (
     <div>
           <Navbar/>
 
           <Routes>
-          <Route path="/" element={<Login url={url}/>}/>
-           <Route path="/dashboard" element={<Dashboard url={url}/>}/>
-           <Route path="/patient" element={<Patient url={url} />}/>
-           <Route path="/predict" element={<Predict url={url} />}/>
+          <Route path="/" element={<Login/>}/>
+           <Route path="/dashboard" element={<Dashboard/>}/>
+           <Route path="/patient" element={<Patient />}/>
+           <Route path="/predict" element={<Predict  />}/>
         </Routes>
     </div>
   )
