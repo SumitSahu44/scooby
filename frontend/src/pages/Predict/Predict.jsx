@@ -4,6 +4,7 @@ import Sidebar from "../../components/Sidebar/Sidebar";
 import { useDropzone } from "react-dropzone";
 import './Predict.css';
 
+// code fo predict disease 
 const Predict = () => {
   const [file, setFile] = useState(null);
   const [preview, setPreview] = useState(null);
