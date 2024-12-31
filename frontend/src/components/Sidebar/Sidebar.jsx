@@ -13,23 +13,23 @@ const Sidebar = () => {
        <div className="sidebar-options">
          <NavLink to='/dashboard' className="sidebar-option">
             <HiShoppingBag className='sidebar-icon'/>
-           <p>Dashboard</p>
+           <p className="text">Dashboard</p>
          </NavLink>
      
        
          <NavLink to='/patient' className="sidebar-option">
             <IoMdPeople className='sidebar-icon'/>
-           <p>Patients</p>
+           <p className="text">Patients</p>
          </NavLink>
        
-         <NavLink to='/setting' className="sidebar-option">
+         {/* <NavLink to='/setting' className="sidebar-option">
          <IoSettingsOutline className='sidebar-icon'/>
            <p>Settings</p>
-         </NavLink>
+         </NavLink> */}
    
          <NavLink to='/predict' className="sidebar-option">
          <MdOutlineOnlinePrediction className='sidebar-icon'/>
-           <p>Predict</p>
+           <p className="text">Diagnosis</p>
          </NavLink>
    
       </div>

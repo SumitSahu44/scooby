@@ -73,14 +73,17 @@ const Dashboard = () => {
         {/* Gender Breakdown */}
         <div className="gender-container">
           <h3>Gender</h3>
+          <br />
           <div>
             <div>Male: 128</div>
             <div style={{ background: "#36A2EB", height: "10px", width: "70%" }}></div>
           </div>
+          <br />
           <div>
             <div>Female: 105</div>
             <div style={{ background: "#FFCE56", height: "10px", width: "50%" }}></div>
           </div>
+          <br />
           <div>
             <div>Other: 25</div>
             <div style={{ background: "#FF6384", height: "10px", width: "15%" }}></div>
