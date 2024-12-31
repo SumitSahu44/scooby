@@ -1,12 +1,16 @@
 import React, { useState } from "react";
+import axios from "axios";
 import Sidebar from "../../components/Sidebar/Sidebar";
 import { useDropzone } from "react-dropzone";
+
 
 const Predict = () => {
   const [file, setFile] = useState(null);
   const [preview, setPreview] = useState(null);
   const [loading, setLoading] = useState(false); // For loading animation
   const [prediction, setPrediction] = useState(null); // To display prediction
+  const [progress, setProgress] = useState(0);
+
 
   const onDrop = (acceptedFiles) => {
     const uploadedFile = acceptedFiles[0];
@@ -33,38 +37,45 @@ const Predict = () => {
       alert("Please upload a file before generating.");
       return;
     }
-
+  
     setLoading(true); // Show loading animation
-    setPrediction(null); // Clear previous prediction
-
+  
     try {
       // Prepare the form data
       const formData = new FormData();
       formData.append("file", file);
-
-      // Make the POST request
-      const response = await fetch(
+  
+      // Make the POST request using axios
+      const response = await axios.post(
         "https://5000-patient-truth-71443484.in-ws1.runcode.io/predict",
+        formData,
         {
-          method: "POST",
           headers: {
             "x-api-key": "nawabBhaikamodel",
+            "Content-Type": "multipart/form-data", // Axios automatically sets the boundary
           },
-          body: formData,
+          onUploadProgress: (progressEvent) => {
+            // Calculate and log the upload progress percentage
+            const percentCompleted = Math.round(
+              (progressEvent.loaded * 100) / progressEvent.total
+            );
+            console.log(`Progress: ${percentCompleted}%`);
+            setProgress(percentCompleted); // Update progress state for loading animation
+          },
         }
       );
-
-      if (!response.ok) {
-        throw new Error("Failed to get a prediction.");
-      }
-
-      const result = await response.json();
-      setPrediction(result.prediction); // Assuming the API returns a "prediction" key
+  
+      // Assuming the API returns a "prediction" key
+      const result = response.data;
+      setPrediction(result.prediction);
+      console.log("Server Response:", result);
     } catch (error) {
       console.error("Error:", error);
+      
       alert("Something went wrong! Please try again.");
     } finally {
       setLoading(false); // Hide loading animation
+      setProgress(0); // Reset progress
     }
   };
 
@@ -105,6 +116,21 @@ const Predict = () => {
         {/* Show loading animation */}
         {loading && <div style={styles.loader}>Loading...</div>}
 
+
+        {/* // Add this in your JSX */}
+                {loading && (
+                <div style={styles.progressBarContainer}>
+                    <div
+                    style={{
+                        ...styles.progressBar,
+                        width: `${progress}%`,
+                    }}
+                    >
+                    {progress}%
+                    </div>
+                </div>
+                )}
+
         {/* Display prediction */}
         {prediction && (
           <div style={styles.predictionContainer}>
@@ -117,6 +143,7 @@ const Predict = () => {
   );
 };
 
+
 const styles = {
   container: {
     fontFamily: "Arial, sans-serif",
@@ -128,6 +155,21 @@ const styles = {
     backgroundColor: "white",
     width: "70%",
     margin: "40px auto",
+  },
+  progressBarContainer: {
+    width: "100%",
+    backgroundColor: "#f3f3f3",
+    borderRadius: "5px",
+    marginTop: "20px",
+    overflow: "hidden",
+  },
+  progressBar: {
+    height: "10px",
+    backgroundColor: "#4caf50",
+    textAlign: "center",
+    lineHeight: "10px",
+    color: "white",
+    transition: "width 0.3s",
   },
   uploadContainer: {
     display: "flex",
