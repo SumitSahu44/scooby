@@ -1,18 +1,27 @@
 import React, { useState } from "react";
-import Sidebar from '../../components/Sidebar/Sidebar'
+import Sidebar from '../../components/Sidebar/Sidebar';
 import { useDropzone } from "react-dropzone";
 
 const Predict = () => {
   const [file, setFile] = useState(null);
+  const [preview, setPreview] = useState(null);
 
   const onDrop = (acceptedFiles) => {
-    setFile(acceptedFiles[0]);
+    const uploadedFile = acceptedFiles[0];
+    if (uploadedFile) {
+      setFile(uploadedFile);
+
+      // Create a preview URL for the image
+      const previewUrl = URL.createObjectURL(uploadedFile);
+      setPreview(previewUrl);
+    }
   };
 
   const { getRootProps, getInputProps } = useDropzone({ onDrop });
 
   const handleRemoveFile = () => {
     setFile(null);
+    setPreview(null);
   };
 
   const handleGenerate = () => {
@@ -24,49 +33,40 @@ const Predict = () => {
   };
 
   return (
+    <div className='app-content'>
+      <Sidebar />
 
-    <div  className='app-content'>
-            <Sidebar/>    
-
-
-
-
-
-
-
-     <div style={styles.container}  className='flex-col' >
-      {/* <button style={styles.backButton} onClick={() => console.log("Back clicked")}>
-        Back
-      </button> */}
-      <div style={styles.uploadContainer}>
-        <div
-          {...getRootProps()}
-          style={styles.dropzone}
-        >
-          <input {...getInputProps()} />
-          {file ? (
-            <div style={styles.fileInfo}>
-              <span>{file.name}</span>
-              <button onClick={handleRemoveFile} style={styles.removeButton}>
-                🗑️
-              </button>
+      <div style={styles.container} className='flex-col'>
+        <div style={styles.uploadContainer}>
+          <div style={styles.dropzoneContainer}>
+            <div {...getRootProps()} style={styles.dropzone}>
+              <input {...getInputProps()} />
+              {file ? (
+                <div style={styles.fileInfo}>
+                  <span>{file.name}</span>
+                  <button onClick={handleRemoveFile} style={styles.removeButton}>
+                    🗑️
+                  </button>
+                </div>
+              ) : (
+                <p>Choose File or drop file here</p>
+              )}
             </div>
-          ) : (
-            <p>Choose File or drop file here</p>
-          )}
+
+            {/* Display the preview if an image is uploaded */}
+            {preview && (
+              <div style={styles.previewContainer}>
+                <img src={preview} alt="Preview" style={styles.imagePreview} />
+              </div>
+            )}
+          </div>
+
+          <button style={styles.generateButton} onClick={handleGenerate}>
+            Generate
+          </button>
         </div>
-        <button style={styles.generateButton} onClick={handleGenerate}>
-          Generate
-        </button>
       </div>
     </div>
-   </div>
-
-
-
-
-
-  
   );
 };
 
@@ -77,18 +77,10 @@ const styles = {
     flexDirection: "column",
     alignItems: "center",
     justifyContent: "center",
-    height: "100vh",
-    backgroundColor: "#f9fafb",
-  },
-  backButton: {
-    position: "absolute",
-    top: 20,
-    left: 20,
-    padding: "5px 10px",
-    backgroundColor: "#fff",
-    border: "1px solid #ddd",
-    borderRadius: "5px",
-    cursor: "pointer",
+    height: "500px",
+    backgroundColor: "white",
+    width: "70%",
+    margin: "40px auto",
   },
   uploadContainer: {
     display: "flex",
@@ -99,6 +91,12 @@ const styles = {
     padding: "20px",
     borderRadius: "10px",
     boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
+  },
+  dropzoneContainer: {
+    display: "flex",
+    flexDirection: "row",
+    alignItems: "center",
+    gap: "20px",
   },
   dropzone: {
     width: "200px",
@@ -132,6 +130,16 @@ const styles = {
     border: "none",
     borderRadius: "5px",
     cursor: "pointer",
+  },
+  previewContainer: {
+    textAlign: "center",
+    width: "200px",
+  },
+  imagePreview: {
+    width: "200px",
+    height: "auto",
+    borderRadius: "10px",
+    boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
   },
 };
 

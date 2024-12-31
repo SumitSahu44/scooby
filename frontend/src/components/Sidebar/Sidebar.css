@@ -1,9 +1,11 @@
 .sidebar{
     width: 18%;
-    min-height: 80vh;
-    border: 1.5px solid #a9a9a9;
+    min-height: 90vh;
+    /* border: 1.5px solid #a9a9a9; */
     border-top: 0;
     font-size: max(1vw, 10px);
+    background-color: white;
+    padding-right:30px;
 }
 .sidebar-options
 {
@@ -19,9 +21,9 @@
   align-items: center;
   gap: 12px;
   /* border: 1px solid #a9a9a9; */
-  border-right: 0;
+  /* border-right: 0; */
   padding: 8px 10px;
-  border-radius: 3px 0px 0px 3px;
+  border-radius: 3px 3px 3px 3px;
   cursor: pointer;
   color: black;
 }
@@ -31,7 +33,7 @@
 .sidebar-option.active{
     background-color: #5979EA;
     border-color: #5979EA;
-    border-radius: 8px 0px 0px 8px;
+    border-radius: 8px 8px 8px 8px;
     color: white;
 }
 

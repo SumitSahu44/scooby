@@ -4,6 +4,7 @@ import { HiShoppingBag } from "react-icons/hi2";
 import { IoMdPeople } from "react-icons/io";
 import { IoSettingsOutline } from "react-icons/io5";
 import {NavLink} from 'react-router-dom'
+import { MdOutlineOnlinePrediction } from "react-icons/md";
 
 
 const Sidebar = () => {
@@ -24,6 +25,11 @@ const Sidebar = () => {
          <NavLink to='/setting' className="sidebar-option">
          <IoSettingsOutline className='sidebar-icon'/>
            <p>Settings</p>
+         </NavLink>
+   
+         <NavLink to='/predict' className="sidebar-option">
+         <MdOutlineOnlinePrediction className='sidebar-icon'/>
+           <p>Predict</p>
          </NavLink>
    
       </div>
