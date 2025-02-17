@@ -10,7 +10,7 @@ const App = () => {
   return (
     <div>
       <Navbar />
-      
+{/*       allroutes heer  */}
       <Routes>
         <Route path="/" element={<Login />} />
         <Route path="/dashboard" element={<Dashboard />} />
