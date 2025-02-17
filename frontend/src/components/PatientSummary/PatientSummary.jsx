@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import PatientTable from "../PatientTable/PatientTable";
 
+
+// patient summary component
 const PatientSummary = () => {
   const [patients, setPatients] = useState([
     {
