@@ -1,6 +1,8 @@
 import React from 'react';
 import { Doughnut } from 'react-chartjs-2';
 
+
+// chart Ui design component 
 const Composite = ({ data }) => {
   const labels = data.labels || [];
   const colors = data.datasets[0].backgroundColor || [];
