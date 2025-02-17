@@ -6,7 +6,7 @@ import { IoSettingsOutline } from "react-icons/io5";
 import {NavLink} from 'react-router-dom'
 import { MdOutlineOnlinePrediction } from "react-icons/md";
 
-
+// Nav sidebar component 
 const Sidebar = () => {
   return (
     <div className='sidebar'>
