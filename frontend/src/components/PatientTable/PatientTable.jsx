@@ -1,5 +1,5 @@
 import React from "react";
-
+// Patient list table component 
 const PatientTable = ({ patients }) => {
   return (
     <table style={{ width: "100%", borderCollapse: "collapse" }}>
