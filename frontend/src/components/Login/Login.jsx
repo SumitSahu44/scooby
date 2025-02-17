@@ -4,6 +4,8 @@ import './Login.css'
 import { FaEnvelope, FaLock } from 'react-icons/fa'; // Import icons
 import { Link } from 'react-router-dom';
 
+
+// login component 
 const Login = () => {
   return (
     <div>
